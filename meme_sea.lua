@@ -50,13 +50,13 @@ local Loaded, Funcs, Folders = {}, {}, {} do
       {"Buy Popcat [ดาบหัวแมว]", "ต้องการ: 10.000 Pops Clicker", {"Weapon_Seller", "Ohio Popcat"}}
     }},
     {"พลังวิเศษ", {
-      {"Buy Flash Step [เคลื่อนย้าย]", "$100.000 Money", {"Ability_Teacher", "Giga Chad"}},
-      {"Buy Instict [ฮาคิสังเกต]", "$2.500.000 Money", {"Ability_Teacher", "Nugget Man"}},
-      {"Buy Aura [ฮาคิเกราะ]", "1x Meme Cube and $10.000.000", {"Ability_Teacher", "Aura Master"}}
+      {"Buy Flash Step [เคลื่อนย้าย]", "ต้องการ: $100.000 Money", {"Ability_Teacher", "Giga Chad"}},
+      {"Buy Instict [ฮาคิสังเกต]", "ต้องการ: $2.500.000 Money", {"Ability_Teacher", "Nugget Man"}},
+      {"Buy Aura [ฮาคิเกราะ]", "ต้องการ: 1x Meme Cube and $10.000.000", {"Ability_Teacher", "Aura Master"}}
     }},
     {"หมัด", {
-      {"Buy Combat [หมัดธรรมดา]", "$0 Money", {"FightingStyle_Teacher", "Maxwell"}},
-      {"Buy Baller [หมัดบอล]", "10x Balls and $10.000.000", {"FightingStyle_Teacher", "Baller"}}
+      {"Buy Combat [หมัดธรรมดา]", "ต้องการ: $0 Money", {"FightingStyle_Teacher", "Maxwell"}},
+      {"Buy Baller [หมัดบอล]", "ต้องการ: 10x Balls and $10.000.000", {"FightingStyle_Teacher", "Baller"}}
     }}
   }
   Loaded.WeaponsList = { "Fight", "Power", "Weapon" }
@@ -422,7 +422,7 @@ local _MainFarm = Tabs.MainFarm do
     Settings.ToolFarm = Value
   end, "Main/FarmTool"})
   _MainFarm:AddSection("ฟาร์มเวล")
-  AddToggle(_MainFarm, {"Auto Farm Level [ฟาร์มเวล]"}, "Level Farm")
+  AddToggle(_MainFarm, {"Auto Farm Level [ฟาร์มเวล]", "MaxLevel: 2400"}, "Level Farm")
   AddToggle(_MainFarm, {"Auto Farm Nearest [ฟาร์มมอนในเกาะ]"}, "Nearest Farm")
   _MainFarm:AddSection("ฟาร์มของ")
   _MainFarm:AddDropdown({"Select Enemie [เลือกมอน]", Loaded.EnemeiesList, {Loaded.EnemeiesList[1]}, function(Value)
@@ -431,7 +431,7 @@ local _MainFarm = Tabs.MainFarm do
   AddToggle(_MainFarm, {"Auto Farm Selected [โจมตีมอนออโต้]"}, "FS Enemie")
   AddToggle(_MainFarm, {"Take Quest [ Enemie Selected ] - รับเควสออโต้", true}, "FS Take Quest")
   _MainFarm:AddSection("บอสฟาร์ม")
-  AddToggle(_MainFarm, {"Auto Meme Beast [ตีบอสออโต้ เกิดทุก 30 นาที]"}, "Meme Beast")
+  AddToggle(_MainFarm, {"Auto Meme Beast [ตีบอสออโต้ เกิดทุก 30 นาที]", "Drops: Portal ( <25% ), Meme Cube ( <50% )"}, "Meme Beast")
   _MainFarm:AddSection("ดันเจี้ยน")
   AddToggle(_MainFarm, {"Auto Farm Raid [ฟาร์มดันเจี้ยน]"}, "Raid Farm")
 end
@@ -516,7 +516,7 @@ local _Teleport = Tabs.Teleport do
   _Teleport:AddDropdown({"Islands [วาร์ปไปที่เกาะ]", Location:WaitForChild("SpawnLocations"):GetChildren(), {}, function(Value)
     GoTo(Location.SpawnLocations[Value].CFrame)
   end})
-  _Teleport:AddDropdown({"Islands [วาร์ปไปที่เควส]", Location:WaitForChild("QuestLocaion"):GetChildren(), {}, function(Value)
+  _Teleport:AddDropdown({"Quests [วาร์ปไปที่เควส]", Location:WaitForChild("QuestLocaion"):GetChildren(), {}, function(Value)
     GoTo(Location.QuestLocaion[Value].CFrame)
   end})
 end
