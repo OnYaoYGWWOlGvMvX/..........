@@ -10,6 +10,7 @@ local Player = Players.LocalPlayer
 
 local rs_Monsters = ReplicatedStorage:WaitForChild("MonsterSpawn")
 local Modules = ReplicatedStorage:WaitForChild("ModuleScript")
+local OtherEvent = ReplicatedStorage:WaitForChild("OtherEvent")
 local Monsters = workspace:WaitForChild("Monster")
 
 local QuestSettings = Modules:WaitForChild("Quest_Settings")
