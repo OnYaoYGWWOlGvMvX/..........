@@ -41,12 +41,13 @@ local _huge = math.huge
 local Loaded, Funcs, Folders = {}, {}, {} do
   Loaded.Shop = {
     {"อาวุธ", {
-      {"Buy Katana [ดาบ]", "$5.000 Money", {"Weapon_Seller", "Doge"}},
-      {"Buy Hanger [ไม้แขวนเสื้อ]", "$25.000 Money", {"Weapon_Seller", "Hanger"}},
-      {"Buy Flame Katana [ดาบไฟ]", "1x Cheems Cola and $50.000", {"Weapon_Seller", "Cheems"}},
-      {"Buy Banana [ดาบกล้วย]", "1x Cat Food and $350.000", {"Weapon_Seller", "Smiling Cat"}},
-      {"Buy Bonk [กระบองไม้]", "5x Money Bags and $1.000.000", {"Weapon_Seller", "Meme Man"}},
-      {"Buy Pumpkin [ดาบหัวฟักทอง]", "1x Nugget Man and $3.500.000", {"Weapon_Seller", "Gravestone"}}
+      {"Buy Katana [ดาบ]", "ต้องการ: $5.000 Money", {"Weapon_Seller", "Doge"}},
+      {"Buy Hanger [ไม้แขวนเสื้อ]", "ต้องการ: $25.000 Money", {"Weapon_Seller", "Hanger"}},
+      {"Buy Flame Katana [ดาบไฟ]", "ต้องการ: 1x Cheems Cola and $50.000", {"Weapon_Seller", "Cheems"}},
+      {"Buy Banana [ดาบกล้วย]", "ต้องการ: 1x Cat Food and $350.000", {"Weapon_Seller", "Smiling Cat"}},
+      {"Buy Bonk [กระบองไม้]", "ต้องการ: 5x Money Bags and $1.000.000", {"Weapon_Seller", "Meme Man"}},
+      {"Buy Pumpkin [ดาบหัวฟักทอง]", "ต้องการ: 1x Nugget Man and $3.500.000", {"Weapon_Seller", "Gravestone"}},
+      {"Buy Popcat [ดาบหัวแมว]", "ต้องการ: 10.000 Pops Clicker", {"Weapon_Seller", "Ohio Popcat"}}
     }},
     {"พลังวิเศษ", {
       {"Buy Flash Step [เคลื่อนย้าย]", "$100.000 Money", {"Ability_Teacher", "Giga Chad"}},
