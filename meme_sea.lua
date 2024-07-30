@@ -392,7 +392,8 @@ if not _env.LoadedFarm then
   end)
 end
 
-local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisPresent/test/main/src"))()
+
+local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Source.Lua"))()
 local Window = redzlib:MakeWindow({ Title = "TH-VPN : Meme Sea [แปลไทย]", SubTitle = "ผู้แปล : ปัณณวิชญ์ นารีเดช", SaveFolder = "Thailand-MemeSea.json" })
 Window:AddMinimizeButton({
   Button = { Image = "rbxassetid://13756967934", BackgroundTransparency = 0 },
@@ -484,11 +485,11 @@ end
 
 local _Stats = Tabs.Stats do
   local StatsName, SelectedStats = {
-    ["Power"] = "MemePowerLevel", ["Health"] = "DefenseLevel",
-    ["Weapon"] = "SwordLevel", ["Melee"] = "MeleeLevel"
+    ["Power [ผลไม้]"] = "MemePowerLevel", ["Health [เลือด]"] = "DefenseLevel",
+    ["Weapon [ดาบ]"] = "SwordLevel", ["Melee [หมัด]"] = "Melee Level"
   }, {}
   
-  _Stats:AddToggle({"Auto Stats", false, function(Value)
+  _Stats:AddToggle({"Auto Stats [ออโต้อัปค่าพลัง]", false, function(Value)
     _env.AutoStats = Value
     local SkillPoint = PlayerData.SkillPoint
     while _env.AutoStats do _wait(0.5)
@@ -504,7 +505,7 @@ local _Stats = Tabs.Stats do
       end
     end
   end})
-  _Stats:AddSection("Select Stats")
+  _Stats:AddSection("ค่าพลัง")
   for _,v in next, StatsName do
     _Stats:AddToggle({_, false, function(Value)
       SelectedStats[_] = Value
