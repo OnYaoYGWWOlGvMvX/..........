@@ -329,6 +329,15 @@ _env.FarmFuncs = {
   {"Bring Fruits", (function()
     
   end)},
+  {"Race V2 Orb", (function()
+    if Funcs:GetPlayerLevel() >= 500 then
+      local Quest, Enemy = "Dancing Banana Quest", "Sogga"
+      if VerifyQuest(Quest) then
+        if KillMonster(Enemy) then else GoTo(EnemyLocation[Enemy].CFrame) end
+      else ClearQuests(Quest)TakeQuest(Quest, CFrame_new(-2620, -80, -2001)) end
+      return true
+    end
+  end)},
   {"Level Farm", (function()
     local Quest, QuestChecker = Funcs:GetCurrentQuest(), Funcs:CheckQuest()
     if Quest then
@@ -457,11 +466,13 @@ local _Items = Tabs.Items do
   _Items:AddSection("เสกบอสอัตโนมัติ")
   AddToggle(_Items, {"Auto Giant Pumpkin [บอสฟักทอง]"}, "Giant Pumpkin")
   AddToggle(_Items, {"Auto Evil Noob [บอสนูป]"}, "Evil Noob")
-  AddToggle(_Items, {"Auto Lord Sus [บอสอมองอัส"}, "Lord Sus")
+  AddToggle(_Items, {"Auto Lord Sus [บอสอมองอัส]"}, "Lord Sus")
+  _Items:AddSection("ฟาร์มออฟ")
+  AddToggle(_Items, {"Auto Awakening Orb [ออฟอัปเผ่า v2]", "ต้องการ: Level 500"}, "Race V2 Orb")
   _Items:AddSection("คลิกออโต้")
   AddToggle(_Items, {"Auto Floppa [ Exclusive Sword ] - ดาบฟรี"}, "_Floppa Sword")
-  _Items:AddSection("Popcat")
-  _Items:AddToggle({"Auto Popcat", false, function(Value)
+  _Items:AddSection("คลิกออโต้")
+  _Items:AddToggle({"Auto Popcat [แต้มคะแนน]", false, function(Value)
     _env.AutoPopcat = Value
     while _env.AutoPopcat do _wait()
       fireclickdetector(Island.FloppaIsland.Popcat_Clickable.Part.ClickDetector)
