@@ -460,13 +460,13 @@ local _Items = Tabs.Items do
   AddToggle(_Items, {"Auto Lord Sus [บอสอมองอัส"}, "Lord Sus")
   _Items:AddSection("คลิกออโต้")
   AddToggle(_Items, {"Auto Floppa [ Exclusive Sword ] - ดาบฟรี"}, "_Floppa Sword")
-  --[[_Items:AddSection("Popcat")
+  _Items:AddSection("Popcat")
   _Items:AddToggle({"Auto Popcat", false, function(Value)
     _env.AutoPopcat = Value
     while _env.AutoPopcat do _wait()
       fireclickdetector(Island.FloppaIsland.Popcat_Clickable.Part.ClickDetector)
     end
-  end, "AutoPopcat"})]]
+  end, "AutoPopcat"})
 end
 
 local _Stats = Tabs.Stats do
