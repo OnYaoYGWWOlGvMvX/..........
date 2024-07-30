@@ -431,9 +431,9 @@ local _MainFarm = Tabs.MainFarm do
   AddToggle(_MainFarm, {"Auto Farm Selected [โจมตีมอนออโต้]"}, "FS Enemie")
   AddToggle(_MainFarm, {"Take Quest [ Enemie Selected ] - รับเควสออโต้", true}, "FS Take Quest")
   _MainFarm:AddSection("บอสฟาร์ม")
-  AddToggle(_MainFarm, {"Auto Meme Beast [ตีบอสออโต้ เกิดทุก 30 นาที]", "Drops: Portal ( <25% ), Meme Cube ( <50% )"}, "Meme Beast")
+  AddToggle(_MainFarm, {"Auto Meme Beast [ตีบอสออโต้ เกิดทุก 30 นาที]", "ดรอปไอเทม: Portal ( <25% ), Meme Cube ( <50% )"}, "Meme Beast")
   _MainFarm:AddSection("ดันเจี้ยน")
-  AddToggle(_MainFarm, {"Auto Farm Raid [ฟาร์มดันเจี้ยน]"}, "Raid Farm")
+  AddToggle(_MainFarm, {"Auto Farm Raid [ฟาร์มดันเจี้ยน]", "ต้องการ: Level 1000"}, "Raid Farm")
 end
 
 local _Items = Tabs.Items do
@@ -465,9 +465,9 @@ local _Items = Tabs.Items do
     ReplicatedStorage.OtherEvent.MainEvents.Modules:FireServer("Reroll_Color", "Halfed Sorcerer")
   end})
   _Items:AddSection("เสกบอสอัตโนมัติ")
-  AddToggle(_Items, {"Auto Giant Pumpkin [บอสฟักทอง]"}, "Giant Pumpkin")
-  AddToggle(_Items, {"Auto Evil Noob [บอสนูป]"}, "Evil Noob")
-  AddToggle(_Items, {"Auto Lord Sus [บอสอมองอัส]"}, "Lord Sus")
+  AddToggle(_Items, {"Auto Giant Pumpkin [บอสฟักทอง]", "ดรอปไอเทม: Pumpkin Head ( <10% ), Nugget Man ( <25% )"}, "Giant Pumpkin")
+  AddToggle(_Items, {"Auto Evil Noob [บอสนูป]", "ดรอปไอเทม: Yellow Blade ( <5% ), Noob Friend ( <5% )"}, "Evil Noob")
+  AddToggle(_Items, {"Auto Lord Sus [บอสอมองอัส]", "ดรอปไอเทม: Purple Sword ( <5% ), Sus Pals ( <10% )"}, "Lord Sus")
   _Items:AddSection("ฟาร์มออฟ")
   AddToggle(_Items, {"Auto Awakening Orb [ออฟอัปเผ่า v2]", "ต้องการ: Level 500"}, "Race V2 Orb")
   _Items:AddSection("คลิกออโต้")
@@ -494,7 +494,7 @@ local _Stats = Tabs.Stats do
       for _,v in pairs(SelectedStats) do
         local Points = SkillPoint.Value
         if v and Points > 0 then
-          ReplicatedStorage.OtherEvent.MainEvents.StatsFunction:InvokeServer({
+          OtherEvent.MainEvents.StatsFunction:InvokeServer({
             ["Target"] = StatsName[_],
             ["Action"] = "UpgradeStats",
             ["Amount"] = math.clamp(((Points<20 and 1) or (Points<100 and 5) or (Points<500 and 20) or 50), 0, Points)
