@@ -68,7 +68,7 @@ local Loaded, Funcs, Folders = {}, {}, {} do
   Loaded.Quests = {}
   
   local function RedeemCode(Code)
-    return ReplicatedStorage.OtherEvent.MainEvents.Code:InvokeServer(Code)
+    return OtherEvent.MainEvents.Code:InvokeServer(Code)
   end
   
   Funcs.RAllCodes = function(self)
@@ -121,14 +121,15 @@ local Loaded, Funcs, Folders = {}, {}, {} do
   
   local _Quests = require(QuestSettings)
   for Npc,Quest in pairs(_Quests) do
-    if not Quest.Special_Quest and QuestLocation:FindFirstChild(Npc) then
+    if QuestLocation:FindFirstChild(Npc) then
       table.insert(Loaded.Quests, {
         RaidBoss = Quest.Raid_Boss,
-        NpcName = Npc,
+        SpecialQuest = Quest.Special_Quest,
         QuestPos = QuestLocation[Npc].CFrame,
         EnemyPos = EnemyLocation[Quest.Target].CFrame,
         Level = Quest.LevelNeed,
-        Enemy = Quest.Target
+        Enemy = Quest.Target,
+        NpcName = Npc
       })
     end
   end
@@ -159,7 +160,7 @@ local function PlayerClick()
     end
     if Settings.AutoHaki and Char:FindFirstChild("AuraColor_Folder") and Funcs:AbilityUnlocked("Aura") then
       if #Char.AuraColor_Folder:GetChildren() < 1 then
-        ReplicatedStorage.OtherEvent.MainEvents.Ability:InvokeServer("Aura")
+        OtherEvent.MainEvents.Ability:InvokeServer("Aura")
       end
     end
   end
@@ -234,7 +235,7 @@ end
 local function ClearQuests(Ignore)
   for _,v in ipairs(QuestFolder:GetChildren()) do
     if v.QuestGiver.Value ~= Ignore and v.Target.Value ~= "None" then
-      ReplicatedStorage.OtherEvent.QuestEvents.Quest:FireServer("Abandon_Quest", { QuestSlot = v.Name })
+      OtherEvent.QuestEvents.Quest:FireServer("Abandon_Quest", { QuestSlot = v.Name })
     end
   end
 end
@@ -392,8 +393,7 @@ if not _env.LoadedFarm then
   end)
 end
 
-
-local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Source.Lua"))()
+local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisPresent/test/main/src"))()
 local Window = redzlib:MakeWindow({ Title = "TH-VPN : Meme Sea [แปลไทย]", SubTitle = "ผู้แปล : ปัณณวิชญ์ นารีเดช", SaveFolder = "Thailand-MemeSea.json" })
 Window:AddMinimizeButton({
   Button = { Image = "rbxassetid://13756967934", BackgroundTransparency = 0 },
@@ -441,7 +441,7 @@ end
 local _Items = Tabs.Items do
   _Items:AddSection("สุ่มผลไม้")
   _Items:AddButton({"Reroll Powers 10X [ 250k Money ] - สุ่มผลไม้", function()
-    ReplicatedStorage.OtherEvent.MainEvents.Modules:FireServer("Random_Power", {
+    OtherEvent.MainEvents.Modules:FireServer("Random_Power", {
       Type = "Decuple",
       NPCName = "Floppa Gacha",
       GachaType = "Money"
@@ -456,7 +456,7 @@ local _Items = Tabs.Items do
         for _,v in ipairs(Backpack:GetChildren()) do
           if v:IsA("Tool") and v.ToolTip == "Power" and v:GetAttribute("Using") == nil then
             v.Parent = Player.Character
-            ReplicatedStorage.OtherEvent.MainEvents.Modules:FireServer("Eatable_Power", { Action = "Store", Tool = v })
+            OtherEvent.MainEvents.Modules:FireServer("Eatable_Power", { Action = "Store", Tool = v })
           end
         end
       end
@@ -464,7 +464,7 @@ local _Items = Tabs.Items do
   end, "AutoStore"})
   _Items:AddSection("สุ่มสีฮาคิเกราะ")
   _Items:AddButton({"Reroll Aura Color [ 10 Gems ] - สีออร่า", function()
-    ReplicatedStorage.OtherEvent.MainEvents.Modules:FireServer("Reroll_Color", "Halfed Sorcerer")
+    OtherEvent.MainEvents.Modules:FireServer("Reroll_Color", "Halfed Sorcerer")
   end})
   _Items:AddSection("เสกบอสอัตโนมัติ")
   AddToggle(_Items, {"Auto Giant Pumpkin [บอสฟักทอง]", "ดรอปไอเทม: Pumpkin Head ( <10% ), Nugget Man ( <25% )"}, "Giant Pumpkin")
@@ -530,7 +530,7 @@ local _Shop = Tabs.Shop do
       local buyfunc = item[3]
       if type(buyfunc) == "table" then
         buyfunc = function()
-          ReplicatedStorage.OtherEvent.MainEvents.Modules:FireServer(unpack(item[3]))
+          OtherEvent.MainEvents.Modules:FireServer(unpack(item[3]))
         end
       end
       
@@ -552,10 +552,10 @@ local _Misc = Tabs.Misc do
   _Misc:AddToggle({"Anti AFK [ยืนเฉยๆ]", true, function(Value) Settings.AntiAFK = Value end, "Anti AFK"})
   _Misc:AddSection("เลือกทีม")
   _Misc:AddButton({"Join Cheems Team [ทีมหมา]", function()
-    ReplicatedStorage.OtherEvent.MainEvents.Modules:FireServer("Change_Team", "Cheems Recruiter")
+    OtherEvent.MainEvents.Modules:FireServer("Change_Team", "Cheems Recruiter")
   end})
   _Misc:AddButton({"Join Floppa Team [ทีมแมว]", function()
-    ReplicatedStorage.OtherEvent.MainEvents.Modules:FireServer("Change_Team", "Floppa Recruiter")
+    OtherEvent.MainEvents.Modules:FireServer("Change_Team", "Floppa Recruiter")
   end})
 end
 
