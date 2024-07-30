@@ -484,11 +484,11 @@ end
 
 local _Stats = Tabs.Stats do
   local StatsName, SelectedStats = {
-    ["Power [ผลไม้]"] = "MemePowerLevel", ["Health [เลือด]"] = "DefenseLevel",
-    ["Weapon [ดาบ]"] = "SwordLevel", ["Melee [หมัด]"] = "Melee Level"
+    ["Power"] = "MemePowerLevel", ["Health"] = "DefenseLevel",
+    ["Weapon"] = "SwordLevel", ["Melee"] = "MeleeLevel"
   }, {}
   
-  _Stats:AddToggle({"Auto Stats [ออโต้อัปค่าพลัง]", false, function(Value)
+  _Stats:AddToggle({"Auto Stats", false, function(Value)
     _env.AutoStats = Value
     local SkillPoint = PlayerData.SkillPoint
     while _env.AutoStats do _wait(0.5)
@@ -504,7 +504,7 @@ local _Stats = Tabs.Stats do
       end
     end
   end})
-  _Stats:AddSection("ค่าพลัง")
+  _Stats:AddSection("Select Stats")
   for _,v in next, StatsName do
     _Stats:AddToggle({_, false, function(Value)
       SelectedStats[_] = Value
