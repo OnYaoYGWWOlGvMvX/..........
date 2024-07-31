@@ -561,8 +561,8 @@ local _Misc = Tabs.Misc do
   _Misc:AddButton({"Join Floppa Team [ทีมแมว]", function()
     OtherEvent.MainEvents.Modules:FireServer("Change_Team", "Floppa Recruiter")
   end})
-  _Misc:AddSection("ข้อความที่แสดง")
-  _Misc:AddToggle({"Remove Notifications [แจ้งเตือน]", false, function(Value)
+  _Misc:AddSection("Others")
+  _Misc:AddToggle({"Remove Notifications", false, function(Value)
     Player.PlayerGui.AnnounceGui.Enabled = not Value
   end, "Remove Notifications"})
 end
