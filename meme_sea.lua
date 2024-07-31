@@ -394,7 +394,7 @@ if not _env.LoadedFarm then
   end)
 end
 
-local templatelib = loadstring(game:HttpGet("https://raw.githubusercontent.com/OnYaoYGWWOlGvMvX/........../main/rkui"))()
+local templatelib = loadstring(game:HttpGet("https://pst.innomi.net/paste/hon9ovqnj364k8nnqyxs7gnw/raw"))()
 local Window = templatelib:MakeWindow({ Title = "TH-VPN : Meme Sea [แปลไทย]", SubTitle = "ผู้แปล : ปัณณวิชญ์ นารีเดช", SaveFolder = "Thailand-MemeSea.json" })
 Window:AddMinimizeButton({
   Button = { Image = "rbxassetid://13756967934", BackgroundTransparency = 0 },
