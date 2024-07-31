@@ -562,7 +562,7 @@ local _Misc = Tabs.Misc do
     OtherEvent.MainEvents.Modules:FireServer("Change_Team", "Floppa Recruiter")
   end})
   _Misc:AddSection("ข้อความที่แสดง")
-  _Misc:AddToggle({"Remove Notifications [แจ้งเตือน]", "Exp, Level, Quest และข้อความอื่นๆ", false, function(Value)
+  _Misc:AddToggle({"Remove Notifications [แจ้งเตือน]", false, function(Value)
     Player.PlayerGui.AnnounceGui.Enabled = not Value
   end, "Remove Notifications"})
 end
