@@ -339,7 +339,7 @@ _env.FarmFuncs = {
       if VerifyQuest(Quest) then
         if KillMonster(Enemy) then else GoTo(EnemyLocation[Enemy].CFrame) end
       else ClearQuests(Quest)TakeQuest(Quest, CFrame_new(-2620, -80, -2001)) end
-      return true
+      return false
     end
   end)},
   {"Level Farm", (function()
@@ -561,8 +561,8 @@ local _Misc = Tabs.Misc do
   _Misc:AddButton({"Join Floppa Team [ทีมแมว]", function()
     OtherEvent.MainEvents.Modules:FireServer("Change_Team", "Floppa Recruiter")
   end})
-  _Misc:AddSection("Others")
-  _Misc:AddToggle({"Remove Notifications", false, function(Value)
+  _Misc:AddSection("ข้อความที่แสดง")
+  _Misc:AddToggle({"Remove Notifications [แจ้งเตือน]", true, function(Value)
     Player.PlayerGui.AnnounceGui.Enabled = not Value
   end, "Remove Notifications"})
 end
