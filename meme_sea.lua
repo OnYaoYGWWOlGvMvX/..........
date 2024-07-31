@@ -436,7 +436,7 @@ local _MainFarm = Tabs.MainFarm do
   _MainFarm:AddSection("บอสฟาร์ม")
   AddToggle(_MainFarm, {"Auto Meme Beast [ตีบอสออโต้ เกิดทุก 30 นาที]", "ดรอปไอเทม: Portal ( <25% ), Meme Cube ( <50% )"}, "Meme Beast")
   _MainFarm:AddSection("ดันเจี้ยน")
-  AddToggle(_MainFarm, {"Auto Farm Raid [ฟาร์มดันเจี้ยน]", "ต้องการ: Level 1000", false}, "Raid Farm")
+  AddToggle(_MainFarm, {"Auto Farm Raid [ฟาร์มดันเจี้ยน]", "ต้องการ: Level 1000"}, "Raid Farm")
 end
 
 local _Items = Tabs.Items do
