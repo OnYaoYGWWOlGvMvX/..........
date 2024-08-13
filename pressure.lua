@@ -845,9 +845,9 @@ end)
 setFullbright(Options.Fullbright.Value)
 
 Fluent:Notify({
-    Title = "Infinite Hub",
+    Title = "DevHub",
     Content = "The script has been loaded.",
     Durtion = 3
 })
-warn("Infinite Hub Loading Completed !!")
+warn("DevHub Loading Completed !!")
 
