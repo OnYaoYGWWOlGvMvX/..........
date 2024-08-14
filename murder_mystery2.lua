@@ -4,6 +4,18 @@ local tab1 = DevHubLibrary.newTab("Main", "rbxassetid://18705759640")
 local tab2 = DevHubLibrary.newTab("Murderer", "rbxassetid://18705777810")
 local tab3 = DevHubLibrary.newTab("Server", "rbxassetid://18705825393")
 
+-- tp
+local plrs = game.Players
+
+-- Fetch all player names
+local playerNames = {}
+local players = plrs:GetPlayers()
+
+for _, player in ipairs(players) do
+    table.insert(playerNames, player.Name)
+end
+-- tp
+
 -- OP
 local Part = Instance.new("Part", workspace)
    Part.Name = "Running Part"
@@ -131,6 +143,22 @@ end)
 
 -- tab 1
 
+tab1.newDropdown("Teleport to player", "Select player name!", {playerNames[1], playerNames[2], playerNames[3], playerNames[4], playerNames[5], playerNames[6], playerNames[7], playerNames[8], playerNames[9], playerNames[10], playerNames[11], playerNames[12], playerNames[13], playerNames[14], playerNames[15], playerNames[16], playerNames[17], playerNames[18], playerNames[19], playerNames[20], playerNames[21], playerNames[22], playerNames[23], playerNames[24], playerNames[25]}, function(selectedplrName)
+
+        local targetPlayer = plrs:FindFirstChild(selectedplrName)
+        
+        if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+            -- Teleporting your character to the selected player's position
+            local targetPosition = targetPlayer.Character.HumanoidRootPart.Position
+            local localPlayerRoot = plrs.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+            
+            if localPlayerRoot then
+                localPlayerRoot.CFrame = CFrame.new(targetPosition)
+            end
+        end
+        print(selectedplrName)
+end)
+
 tab1.newButton("Teleport to murderer", "Click!", function()
     Plr.Character.HumanoidRootPart.CFrame = GetMurderer() ~= nil and GetMurderer().HumanoidRootPart.CFrame or Plr.Character.HumanoidRootPart.CFrame
 end)
@@ -178,7 +206,7 @@ tab1.newToggle("sheriff ESP", "Toggle!", false, function(toggleSheriff)
         end
 end)
 
-tab1.newToggle("Fullbright", "Toggle!", true, function(Fullbright)
+tab1.newToggle("Fullbright", "Toggle!", false, function(Fullbright)
     if Fullbright then
         game.Lighting.Brightness = 2
         game.Lighting.GlobalShadows = false
